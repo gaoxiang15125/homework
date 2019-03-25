@@ -1,8 +1,10 @@
 package com.j2ee.homework.homework.entity;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 
 /**
  * @program: restaurant
@@ -11,10 +13,14 @@ import javax.persistence.Id;
  * @create: 2019-03-22 16:51
  * @email: 630268696@qq.com
  **/
+@Entity(name = "address")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class AddressEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private int id;
-    private String email;
+    String clientId;
     private String address;
 }

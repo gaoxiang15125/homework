@@ -48,20 +48,20 @@ public class MailServiceTest {
 
     @Test
     public void sendHtmlMail() {
-        try {
-            Configuration configuration = new Configuration(Configuration.VERSION_2_3_0);
-            ClassLoader classLoader = HomeworkApplication.class.getClassLoader();
-            configuration.setClassLoaderForTemplateLoading(classLoader, "ftl");
-            Template template = configuration.getTemplate("mailtemplate.ftl");
-            StringWriter mail = new StringWriter();
-            ClientUserEntity clientUser = new ClientUserEntity("奥黛丽·赫本", "女", 10.0,"dasda");
-            template.process(clientUser, mail);
-            //将数据与界面通过代码关联到一起
-            //System.out.println(mail.toString());
-            mailService.sendHtmlMail("630268696@qq.com","测试邮件发送html主题", mail.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Configuration configuration = new Configuration(Configuration.VERSION_2_3_0);
+//            ClassLoader classLoader = HomeworkApplication.class.getClassLoader();
+//            configuration.setClassLoaderForTemplateLoading(classLoader, "ftl");
+//            Template template = configuration.getTemplate("mailtemplate.ftl");
+//            StringWriter mail = new StringWriter();
+//            ClientUserEntity clientUser = new ClientUserEntity("奥黛丽·赫本", "女", 10.0,"dasda");
+//            template.process(clientUser, mail);
+//            //将数据与界面通过代码关联到一起
+//            //System.out.println(mail.toString());
+//            mailService.sendHtmlMail("630268696@qq.com","测试邮件发送html主题", mail.toString());
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Test

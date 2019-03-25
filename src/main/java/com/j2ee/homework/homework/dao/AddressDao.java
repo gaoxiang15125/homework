@@ -1,9 +1,10 @@
 package com.j2ee.homework.homework.dao;
 
-import com.j2ee.homework.homework.entity.AddressEntity;
-import org.springframework.data.jpa.repository.JpaRepository;
+        import com.j2ee.homework.homework.entity.AddressEntity;
+        import org.springframework.data.jpa.repository.JpaRepository;
+        import org.springframework.data.jpa.repository.Query;
 
-import java.util.List;
+        import java.util.List;
 
 /**
  * @program: restaurant
@@ -14,6 +15,7 @@ import java.util.List;
  **/
 public interface AddressDao extends JpaRepository<AddressEntity,Integer> {
 
-    List<AddressEntity> getAddressEntitiesByEmail();
+    @Query(value = "select * from address where client_id =?1",nativeQuery = true)
+    List<AddressEntity> getAddressEntitiesById(int clientId);
 
 }

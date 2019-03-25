@@ -4,25 +4,29 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.validation.Valid;
+import javax.persistence.*;
 
 /**
  * @program: restaurant
  * @Description:
  * @author: Mr.gao
- * @create: 2019-03-22 16:10
+ * @create: 2019-03-25 08:49
  * @email: 630268696@qq.com
  **/
-@Entity(name = "t_walet")
+@Entity(name = "goods")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class WalletEntity {
+public class GoodsEntity {
+
     @Id
-    private String email;
-    //private UserTaken types;
-    private double money;
+    @GeneratedValue
+    int id;
+    String name;
+    String restaurantId;
+    double price;
+    String img;
+    String description;
+    int sales;
 
 }

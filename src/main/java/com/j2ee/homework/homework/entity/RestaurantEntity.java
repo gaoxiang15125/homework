@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
@@ -17,13 +18,16 @@ import javax.persistence.Id;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "t_bussiness")
-public class BussinessEntity {
+@Entity(name = "restaurants")
+public class RestaurantEntity {
     @Id
-    private String BussinessUUID;
+    @GeneratedValue
+    int id;
+    String restaurantUUID;
     //private String e_mail;
-    private String bussinessName;
-    private String telPhone;
-    private int bussinessType;
-    private String description;
+    String restaurantName;
+    String telPhone;
+    int restaurantType;
+    String description;
+    String address;
 }
