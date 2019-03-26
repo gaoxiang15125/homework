@@ -2,8 +2,10 @@ package com.j2ee.homework.homework;
 
 import com.j2ee.homework.homework.dao.*;
 import com.j2ee.homework.homework.entity.*;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -13,6 +15,7 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class HomeworkApplicationTests {
     //测试用数据
     String userUUID ="630268699@qq.com";
@@ -31,17 +34,17 @@ public class HomeworkApplicationTests {
     SafeDao safeDao;
 
     //实体对象与存储类型
-    SecurityEntity userSecurityEntity;
-    SecurityEntity restaurantSecurity;
-    ClientUserEntity clientUserEntity;
-    List<AddressEntity> addressEntities;
-    RestaurantEntity restaurantEntity;
-    List<RestaurantEntity> restaurantEntities;
-    List<GoodsEntity> goodsEntities;
-    GoodsEntity goodsEntity;
-    List<OrderEntity> orderEntities;
+    static SecurityEntity userSecurityEntity;
+    static SecurityEntity restaurantSecurity;
+    static ClientUserEntity clientUserEntity;
+    static List<AddressEntity> addressEntities;
+    static RestaurantEntity restaurantEntity;
+    static List<RestaurantEntity> restaurantEntities;
+    static List<GoodsEntity> goodsEntities;
+    static GoodsEntity goodsEntity;
+    static List<OrderEntity> orderEntities;
     @Test
-    public void safeDaoTest() {
+    public void asafeDaoTest() {
         System.out.println("<---------------密码DAO层测试开始------------->");
         userSecurityEntity = safeDao.findByUUID(userUUID);
         restaurantSecurity = safeDao.findByUUID(restaurant);
@@ -53,14 +56,14 @@ public class HomeworkApplicationTests {
         System.out.println(safeDao.findPasswordByUserId(restaurant));
     }
     @Test
-    public void setClientUserDao(){
+    public void bsetClientUserDao(){
         System.out.println("<----------------用户DAO层测试开始------------->");
         clientUserEntity = clientUserDao.getClientUserInfo(userUUID);
         System.out.println(clientUserEntity.toString());
         System.out.println(clientUserDao.existsByEmail(userUUID));
     }
     @Test
-    public void addressDaoTest(){
+    public void caddressDaoTest(){
         System.out.println("<-----------------地址DAO层测试开始------------->");
         addressEntities = addressDao.getAddressEntitiesById(clientUserEntity.getId());
         for(AddressEntity addressEntity:addressEntities){
@@ -68,7 +71,7 @@ public class HomeworkApplicationTests {
         }
     }
     @Test
-    public void restaurantDaoTest(){
+    public void drestaurantDaoTest(){
         System.out.println("<-----------------餐厅DAO层测试开始------------->");
         restaurantEntity = restaurantDao.getRestaurantEntitiesByRestaurantUUID(restaurant);
         System.out.println(restaurant.toString());
@@ -79,7 +82,7 @@ public class HomeworkApplicationTests {
         System.out.println(restaurantDao.existsByRestaurantUUID("4561237"));
     }
     @Test
-    public void goodsDaoTest(){
+    public void egoodsDaoTest(){
         System.out.println("<-----------------商品DAO层测试开始------------->");
         goodsEntities = goodsDao.findAllByRestaurantId(restaurantEntity.getId());
         for(GoodsEntity goodsEntity:goodsEntities){
@@ -89,8 +92,7 @@ public class HomeworkApplicationTests {
         System.out.println(goodsEntity.toString());
     }
     @Test
-    public void orderDaoTest(){
-        orderEntities = orderDao.findAllByClientUserId(clientUserEntity.getId());
+    public void forderDaoTest(){
         orderEntities = orderDao.findAllByRestaurantId(restaurantEntity.getId());
         orderEntities = orderDao.findAllByGoodsId(goodsEntity.getId());
         orderEntities = orderDao.findAllByStatus(0);

@@ -23,7 +23,7 @@ public class GoodsEntity {
     @GeneratedValue
     int id;
     String name;
-    String restaurantId;
+    int restaurantId;
     double price;
     String img;
     String description;

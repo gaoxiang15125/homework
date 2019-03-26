@@ -17,8 +17,10 @@ public interface RestaurantDao extends JpaRepository<RestaurantEntity,Integer> {
 
     @Query(value = "select * from restaurants where restaurantuuid =?1",nativeQuery = true)
     RestaurantEntity getRestaurantEntitiesByRestaurantUUID(String restaurantUUID);
-    @Query(value = "select * from restaurants where restaurant_name like ?1",nativeQuery = true)
+
+    @Query(value = "select * from restaurants where restaurant_name like %?1%",nativeQuery = true)
     List<RestaurantEntity> findAllByRestaurantName(String restaurantName);
+
     //判断数据库中是否已经有该账户
     boolean existsByRestaurantUUID(String restaurantUUID);
 }

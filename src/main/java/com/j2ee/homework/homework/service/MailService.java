@@ -6,6 +6,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -18,7 +19,7 @@ import java.io.File;
  * @create: 2019-03-12 11:46
  * @email: 630268696@qq.com
  **/
-@Component
+@Service
 @PropertySource("classpath:test.properties")
 public class MailService {
 

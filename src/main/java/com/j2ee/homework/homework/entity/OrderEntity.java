@@ -23,9 +23,9 @@ public class OrderEntity {
     @Id
     @GeneratedValue
     int id;
-    String clientUserId;
-    String goodsId;
-    String restaurantId;
+    int clientUserId;
+    int goodsId;
+    int restaurantId;
     double price;
     //0标识正常订单 1标识完成订单 -1 标识已经超时的订单
     int status ;

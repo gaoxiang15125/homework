@@ -33,7 +33,7 @@ public class ClientUserEntity {
     //-1表示未验证的账号，0标识正常账号
     //决定移动到密码验证表内
     //private int status = -1;
-    private Date birthday;
+    //private Date birthday;
     //private int vip;
     //用户账号余额
     double balance;
@@ -45,7 +45,7 @@ public class ClientUserEntity {
     int point;
     //用户总的消费额
     double purchase;
-    //会员有效期(默认是一年)
+    //会员有效期(默认是一个月)
     Date validtime;
     //支付密码
     String payPassword;
