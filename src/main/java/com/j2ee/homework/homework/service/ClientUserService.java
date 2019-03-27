@@ -31,8 +31,20 @@ public class ClientUserService {
         return clientUserDao.getClientUserInfo(email);
     }
 
-    public Boolean changeUserInfo(ClientUserEntity clientUserEntity){
+    public Boolean save(ClientUserEntity clientUserEntity){
         try{
+            clientUserDao.save(clientUserEntity);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    public Boolean changeUserInfo(ClientUserEntity clientUserEntity){
+        ClientUserEntity clientUserEntityBuff = clientUserDao.getClientUserInfo(clientUserEntity.getEmail());
+        try{
+            clientUserEntity.setId(clientUserEntityBuff.getId());
             clientUserDao.save(clientUserEntity);
         }catch (Exception e){
             e.printStackTrace();
@@ -55,9 +67,9 @@ public class ClientUserService {
         return true;
     }
 
-    public boolean removeAddress(AddressEntity addressEntity){
+    public boolean removeAddress(int clientID,String address){
         try {
-            addressDao.delete(addressEntity);
+            addressDao.deleteAddressEntitiesByAddressAndClientIdAnd(address,clientID);
         }catch (Exception e){
             e.printStackTrace();
             return false;

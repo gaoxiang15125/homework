@@ -36,6 +36,8 @@ public class RestaurantUserService {
     }
 
     public boolean changeRestaurantInfo(RestaurantEntity restaurantEntity){
+        RestaurantEntity restaurantEntityBuff = restaurantDao.getRestaurantEntitiesByRestaurantUUID(restaurantEntity.getRestaurantUUID());
+        restaurantEntity.setId(restaurantEntityBuff.getId());
         restaurantDao.save(restaurantEntity);
         return true;
     }

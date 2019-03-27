@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.sql.Timestamp;
 
 /**
  * @program: restaurant
@@ -33,4 +34,5 @@ public class SecurityEntity {
     //用户的唯一标识码UUID，之所以不作为key值是因为劳资不想用
     //没错 他跟用户表里存储的UUID是一样
     String UUID;
+    Timestamp creatTime;
 }

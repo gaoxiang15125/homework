@@ -1,4 +1,4 @@
-package com.j2ee.homework.homework.service;
+package com.j2ee.homework.homework.tools;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,9 +19,9 @@ import java.io.File;
  * @create: 2019-03-12 11:46
  * @email: 630268696@qq.com
  **/
-@Service
+@Component
 @PropertySource("classpath:test.properties")
-public class MailService {
+public class MailTools {
 
     @Autowired
     JavaMailSender javaMailSender;
@@ -74,5 +74,9 @@ public class MailService {
             System.out.println("发送邮件：content");
             e.printStackTrace();
         }
+    }
+
+    public static void main(String args[]){
+        
     }
 }

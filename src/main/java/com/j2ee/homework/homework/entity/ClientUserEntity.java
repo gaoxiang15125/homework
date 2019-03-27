@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  * @program: demo
@@ -46,9 +47,9 @@ public class ClientUserEntity {
     //用户总的消费额
     double purchase;
     //会员有效期(默认是一个月)
-    Date validtime;
+    Timestamp validtime;
     //支付密码
     String payPassword;
     //注册使用的UUID
-    private String UUIDForUser;
+    String UUIDForUser;
 }

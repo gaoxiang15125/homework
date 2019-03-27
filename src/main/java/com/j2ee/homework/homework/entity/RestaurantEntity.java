@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.sql.Timestamp;
 
 /**
  * @program: restaurant
@@ -30,4 +31,5 @@ public class RestaurantEntity {
     int restaurantType;
     String description;
     String address;
+
 }

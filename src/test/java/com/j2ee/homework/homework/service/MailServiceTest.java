@@ -1,9 +1,6 @@
 package com.j2ee.homework.homework.service;
 
-import com.j2ee.homework.homework.HomeworkApplication;
-import com.j2ee.homework.homework.entity.ClientUserEntity;
-import freemarker.template.Configuration;
-import freemarker.template.Template;
+import com.j2ee.homework.homework.tools.MailTools;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,7 +9,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.File;
-import java.io.StringWriter;
 
 /**
  * @program: demo
@@ -25,7 +21,7 @@ import java.io.StringWriter;
 @SpringBootTest
 public class MailServiceTest {
 
-    MailService mailService = new MailService();
+    MailTools mailService = new MailTools();
 
     @Before
     public void setUp() throws Exception {

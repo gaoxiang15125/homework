@@ -76,4 +76,16 @@ public class LoginService {
     public void save(SecurityEntity securityEntity){
         safeDao.save(securityEntity);
     }
+
+    public boolean deleteVIPUser(String email){
+        try{
+            SecurityEntity clientUserEntity = safeDao.findByUserId(email);
+            clientUserEntity.setStatus(-1);
+            safeDao.save(clientUserEntity);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
 }

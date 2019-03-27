@@ -20,7 +20,7 @@ import javax.persistence.*;
 public class AddressEntity {
     @Id
     @GeneratedValue
-    private int id;
-    String clientId;
-    private String address;
+    int id;
+    int clientId;
+    String address;
 }

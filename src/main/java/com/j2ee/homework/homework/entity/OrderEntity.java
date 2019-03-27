@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  * @program: restaurant
@@ -30,7 +31,7 @@ public class OrderEntity {
     //0标识正常订单 1标识完成订单 -1 标识已经超时的订单
     int status ;
     //下单时间
-    Date order_time;
+    Timestamp order_time;
     //用户备注
     String description;
 }
