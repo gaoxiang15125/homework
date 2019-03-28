@@ -2,7 +2,9 @@ package com.j2ee.homework.homework.controller;
 
 import com.j2ee.homework.homework.dao.GoodsDao;
 import com.j2ee.homework.homework.entity.GoodsEntity;
+import com.j2ee.homework.homework.entity.OrderEntity;
 import com.j2ee.homework.homework.entity.RestaurantEntity;
+import com.j2ee.homework.homework.service.ClientUserService;
 import com.j2ee.homework.homework.service.RestaurantUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -62,8 +64,19 @@ public class RestaurantController {
         }
         return true;
     }
-
+    @GetMapping("/restaurant/goods/deleteGoods")
     public boolean deleteGoods(GoodsEntity goodsEntity){
-
+        try{
+            restaurantUserService.removeGoods(goodsEntity);
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
+    @GetMapping("/restaurant/orders")
+    public List<OrderEntity> getAllOrderByRestaurantID(int restaurantID){
+        return restaurantUserService.getAllRestaurantOrder(restaurantID);
+    }
+
 }

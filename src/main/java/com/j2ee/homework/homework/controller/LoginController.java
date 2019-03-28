@@ -6,6 +6,7 @@ import com.j2ee.homework.homework.service.ClientUserService;
 import com.j2ee.homework.homework.service.EmailService;
 import com.j2ee.homework.homework.service.LoginService;
 import com.j2ee.homework.homework.tools.DateTools;
+import com.j2ee.homework.homework.tools.StaticValueTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -63,7 +64,7 @@ public class LoginController {
         //配置账号基本信息
         securityEntity.setUserId(email);
         securityEntity.setPassword(password);
-        securityEntity.setStatus(-2);
+        securityEntity.setStatus(StaticValueTools.waitForReady);
         securityEntity.setUUID(userUUID);
         securityEntity.setCreatTime(new Timestamp(new Date().getTime()));
         //保存用户信息

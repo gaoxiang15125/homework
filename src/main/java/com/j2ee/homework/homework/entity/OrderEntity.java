@@ -28,10 +28,11 @@ public class OrderEntity {
     int goodsId;
     int restaurantId;
     double price;
-    //0标识正常订单 1标识完成订单 -1 标识已经超时的订单
+    //0标识正常订单 1标识完成订单 -1 标识已经超时的订单 2 标识正在配送订单
     int status ;
     //下单时间
     Timestamp order_time;
     //用户备注
     String description;
+
 }

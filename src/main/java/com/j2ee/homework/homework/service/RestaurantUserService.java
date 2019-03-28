@@ -53,5 +53,5 @@ public class RestaurantUserService {
     public List<OrderEntity> getAllRestaurantOrder(int restaurantID){
         return orderDao.findAllByRestaurantId(restaurantID);
     }
-
+    //等待补充修改订单状态，对订单进行操作的方法
 }
