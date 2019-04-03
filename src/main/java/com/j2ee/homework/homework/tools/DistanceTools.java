@@ -75,17 +75,20 @@ public class DistanceTools {
     public static JSONArray getRangeKeyWord(String likeKey){
         String finalStr = likekeyStr +likeKey;
         JSONObject jsonObject = JSONObject.parseObject(getResponse(finalStr));
-        System.out.println(jsonObject);
+        //System.out.println(jsonObject);
         if(jsonObject.getString("status").equals("1")){
-
+            JSONObject resultJSON = JSONObject.parseObject(getResponse(finalStr));
+            //System.out.println(resultJSON);
+            JSONArray result = resultJSON.getJSONArray("tips");
+            //System.out.println(result.size());
+            return result;
         }else{
             return null;
         }
-        JSONArray result = JSONArray.parseArray(getResponse(finalStr));
-        return result;
+
     }
 
-    public static void main(String[] args){
-        System.out.println(getRangeKeyWord("南京大学"));
-    }
+//    public static void main(String[] args){
+//        System.out.println(getRangeKeyWord("南京大学"));
+//    }
 }
